@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     version="1.1" baseProfile="full"
+     width="1583" height="970" viewBox="0 0 1583 970">
+  <defs>
+    
+  </defs>
+  <g id="Layer-Background">
+    
+  </g>
+  <g id="Layer-Legends">
+    
+  </g>
+  <g id="Layer-Tree">
+    <g id="Tree-CladeHighlights">
+      
+    </g>
+    <g id="Tree-NodeBars">
+      
+    </g>
+    <g id="Tree-Branches" stroke="#333231" stroke-width="5" fill="none" stroke-linecap="round">
+      <line x1="14.47" y1="26.00" x2="616.71" y2="26.00"/>
+      <line x1="14.47" y1="571.06" x2="14.48" y2="571.06"/>
+      <line x1="14.48" y1="351.13" x2="14.49" y2="351.13"/>
+      <line x1="14.49" y1="179.00" x2="480.91" y2="179.00"/>
+      <line x1="14.49" y1="523.25" x2="504.99" y2="523.25"/>
+      <line x1="504.99" y1="408.50" x2="992.09" y2="408.50"/>
+      <line x1="992.09" y1="332.00" x2="992.10" y2="332.00"/>
+      <line x1="992.09" y1="485.00" x2="1461.00" y2="485.00"/>
+      <line x1="504.99" y1="638.00" x2="963.91" y2="638.00"/>
+      <line x1="14.48" y1="791.00" x2="14.49" y2="791.00"/>
+      <line x1="14.47" y1="944.00" x2="475.88" y2="944.00"/>
+      <line x1="0.00" y1="513.69" x2="14.47" y2="513.69"/>
+      <line x1="14.47" y1="26.00" x2="14.47" y2="944.00"/>
+      <line x1="14.48" y1="351.13" x2="14.48" y2="791.00"/>
+      <line x1="14.49" y1="179.00" x2="14.49" y2="523.25"/>
+      <line x1="504.99" y1="408.50" x2="504.99" y2="638.00"/>
+      <line x1="992.09" y1="332.00" x2="992.09" y2="485.00"/>
+    </g>
+    <g id="Tree-BranchShapes">
+      
+    </g>
+    <g id="Tree-CollapsedClades">
+      
+    </g>
+    <g id="Tree-NodeBg">
+      <circle cx="14.47" cy="513.69" r="3" fill="#ebe8e2" stroke="#ebe8e2" stroke-width="2"/>
+      <circle cx="14.48" cy="571.06" r="3" fill="#ebe8e2" stroke="#ebe8e2" stroke-width="2"/>
+      <circle cx="14.49" cy="351.13" r="3" fill="#ebe8e2" stroke="#ebe8e2" stroke-width="2"/>
+      <circle cx="504.99" cy="523.25" r="3" fill="#ebe8e2" stroke="#ebe8e2" stroke-width="2"/>
+      <circle cx="992.09" cy="408.50" r="3" fill="#ebe8e2" stroke="#ebe8e2" stroke-width="2"/>
+    </g>
+    <g id="Tree-TipBg">
+      <circle cx="616.71" cy="26.00" r="24" fill="#4b4b49" stroke="#4b4b49" stroke-width="2"/>
+      <circle cx="480.91" cy="179.00" r="24" fill="#4b4b49" stroke="#4b4b49" stroke-width="2"/>
+      <circle cx="992.10" cy="332.00" r="24" fill="#4b4b49" stroke="#4b4b49" stroke-width="2"/>
+      <circle cx="1461.00" cy="485.00" r="24" fill="#4b4b49" stroke="#4b4b49" stroke-width="2"/>
+      <circle cx="963.91" cy="638.00" r="24" fill="#4b4b49" stroke="#4b4b49" stroke-width="2"/>
+      <circle cx="14.49" cy="791.00" r="24" fill="#4b4b49" stroke="#4b4b49" stroke-width="2"/>
+      <circle cx="475.88" cy="944.00" r="24" fill="#4b4b49" stroke="#4b4b49" stroke-width="2"/>
+    </g>
+    <g id="Tree-NodeFg">
+      <circle cx="14.47" cy="513.69" r="3" fill="#4b4b49"/>
+      <circle cx="14.48" cy="571.06" r="3" fill="#4b4b49"/>
+      <circle cx="14.49" cy="351.13" r="3" fill="#4b4b49"/>
+      <circle cx="504.99" cy="523.25" r="3" fill="#4b4b49"/>
+      <circle cx="992.09" cy="408.50" r="3" fill="#4b4b49"/>
+    </g>
+    <g id="Tree-TipFg">
+      <circle cx="616.71" cy="26.00" r="24" fill="#ebe8e2"/>
+      <circle cx="480.91" cy="179.00" r="24" fill="#ebe8e2"/>
+      <circle cx="992.10" cy="332.00" r="24" fill="#ebe8e2"/>
+      <circle cx="1461.00" cy="485.00" r="24" fill="#ebe8e2"/>
+      <circle cx="963.91" cy="638.00" r="24" fill="#ebe8e2"/>
+      <circle cx="14.49" cy="791.00" r="24" fill="#ebe8e2"/>
+      <circle cx="475.88" cy="944.00" r="24" fill="#ebe8e2"/>
+    </g>
+    <g id="Tree-Connectors">
+      
+    </g>
+    <g id="Tree-Shapes">
+      
+    </g>
+    <g id="Tree-Labels">
+      <g id="Labels-Tips">
+        <text x="651.71" y="26.00" dominant-baseline="central" font-family="monospace" font-size="48px" font-style="normal" font-weight="400" fill="#4b4b49">Frog</text>
+        <text x="515.91" y="179.00" dominant-baseline="central" font-family="monospace" font-size="48px" font-style="normal" font-weight="400" fill="#4b4b49">Turtle</text>
+        <text x="1027.10" y="332.00" dominant-baseline="central" font-family="monospace" font-size="48px" font-style="normal" font-weight="400" fill="#4b4b49">Human</text>
+        <text x="1496.00" y="485.00" dominant-baseline="central" font-family="monospace" font-size="48px" font-style="normal" font-weight="400" fill="#4b4b49">Cow</text>
+        <text x="998.91" y="638.00" dominant-baseline="central" font-family="monospace" font-size="48px" font-style="normal" font-weight="400" fill="#4b4b49">Whale</text>
+        <text x="49.49" y="791.00" dominant-baseline="central" font-family="monospace" font-size="48px" font-style="normal" font-weight="400" fill="#4b4b49">Mouse</text>
+        <text x="510.88" y="944.00" dominant-baseline="central" font-family="monospace" font-size="48px" font-style="normal" font-weight="400" fill="#4b4b49">Bird</text>
+      </g>
+      <g id="Labels-Nodes">
+        
+      </g>
+      <g id="Labels-Branches">
+        
+      </g>
+      <g id="Labels-CollapsedClades">
+        
+      </g>
+    </g>
+  </g>
+  <g id="Layer-Axis">
+    
+  </g>
+</svg>
