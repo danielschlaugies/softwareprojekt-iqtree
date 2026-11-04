@@ -1,0 +1,24 @@
+flowchart LR
+    aln[">Frog
+AAATTTGGTCCTGTGATTCAGCAGTGAT
+>Turtle
+CTTCCACACCCCAGGACTCAGCAGTGAT
+>Bird
+CTACCACACCCCAGGACTCAGCAGTAAT
+>Human
+CTACCACACCCCAGGAAACAGCAGTGAT
+>Cow
+CTACCACACCCCAGGAAACAGCAGTGAC
+>Whale
+CTACCACGCCCCAGGACACAGCAGTGAT
+>Mouse
+CTACCACACCCCAGGACTCAGCAGTGAT"] --> iq{"`**IQ-TREE**`"}
+    
+    iq-->tree
+
+    tree@{ img: "https://raw.githubusercontent.com/danielschlaugies/softwareprojekt-iqtree/refs/heads/main/initial_presentation/tree.svg", constraint: "on", h: 200}
+    
+    aln:::customMono
+    tree:::noBorder
+    classDef customMono text-align:left,font-family:monospace,font-size:8px;
+    classDef noBorder stroke:none,stroke-width:0;
