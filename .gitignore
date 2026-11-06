@@ -218,3 +218,23 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+literature/*.pdf
+initial_presentation/*.bionj
+initial_presentation/*.ckp.gz
+initial_presentation/*.mldist
+initial_presentation/*.model.gz
+initial_presentation/*.lmap.eps
+initial_presentation/*.aux
+initial_presentation/*.fdb_latexmk
+initial_presentation/*.fls
+initial_presentation/*.nav
+initial_presentation/*.out
+initial_presentation/*.snm
+initial_presentation/*.synctex.gz
+initial_presentation/*.toc
+initial_presentation/*.vrb
+
+
+
