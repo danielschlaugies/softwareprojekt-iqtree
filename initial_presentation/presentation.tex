@@ -4,6 +4,7 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{hyperref}
+\usepackage{tikz}
 
 \usetheme{moloch}
 
@@ -161,6 +162,100 @@ Quartet resolution per sequence (phylogenetic information):
 
 \end{frame}
 
+\begin{frame}
+    \frametitle{Quartet Permutations}
+    \begin{columns}[t]
+        \begin{column}{0.5\textwidth}
+            \texttt{iqtree3 -lmap 1000}
+            \begin{itemize}
+                \item Specifies number of quartets to be drawn
+                \item Quartets are drawn uniformly at random
+            \end{itemize}
+            \centering
+            \vfill
+            \includegraphics[scale=0.18]{likelihood_diagram_percentages.png}
+        \end{column}
+        \pause
+        \begin{column}{0.5\textwidth}
+            \texttt{iqtree3 -lmap ALL}
+            \begin{itemize}
+                \item All possible $\binom{n}{4}$ quartets are drawn
+                \item in this case $n = 14 \implies \binom{14}{4} = 1001$
+            \end{itemize}
+            \centering
+            \vspace{2em}
+            \pause
+            \includegraphics[scale=0.18]{hiv_lmap_ALL.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Quartet Permutations - Explanation} 
+    \begin{itemize}
+        \item With \texttt{-lmap ALL}, sequences in a quartet are drawn according to their order in the alignment
+        \item Changing their order changes the tree topology and thus their likelihoods
+        \item Mathematically: there is a group homomorphism $S_4 \to \text{Sym}(\{T_1, T_2, T_3\}) \cong S_3$.
+    \end{itemize}
+    \begin{example}
+        Swap $A$ and $B$:
+        \\
+        \centering
+        \begin{tikzpicture}[thick, scale = 0.75, transform shape]
+            % Tree 2
+            \draw (-1,1) -- (0,0);
+            \draw (-1,-1) -- (0,0);
+            \draw (0,0) -- (1, 0);
+            \draw (1, 0) -- (2,1);
+            \draw (1, 0) -- (2,-1);
+
+            \node[above left] at (-1,1) {\textbf{A}};
+            \node[below left] at (-1,-1) {\textbf{C}};
+            \node[above right] at (2,1) {\textbf{B}};
+            \node[below right] at (2,-1) {\textbf{D}};
+
+            %Label
+            \node at (0.5,1.8) {$\mathbf{T_2}$};
+
+            \draw [->] (3,0) -- (4,0);
+
+            % transformed tree 
+            \draw (5,1) -- (6,0);
+            \draw (5,-1) -- (6,0);
+            \draw (6,0) -- (7, 0);
+            \draw (7, 0) -- (8,1);
+            \draw (7, 0) -- (8,-1);
+
+            \node[above left] at (5,1) {\textbf{B}};
+            \node[below left] at (5,-1) {\textbf{C}};
+            \node[above right] at (8,1) {\textbf{A}};
+            \node[below right] at (8,-1) {\textbf{D}};
+
+            \node at (9,0) {$\cong$};
+
+            % isomorphic tree 
+            \draw (10,1) -- (11,0);
+            \draw (10,-1) -- (11,0);
+            \draw (11,0) -- (12, 0);
+            \draw (12, 0) -- (13,1);
+            \draw (12, 0) -- (13,-1);
+
+            \node[above left] at (10,1) {\textbf{A}};
+            \node[below left] at (10,-1) {\textbf{D}};
+            \node[above right] at (13,1) {\textbf{B}};
+            \node[below right] at (13,-1) {\textbf{C}};
+
+            \node at (11.5,1.8) {$\mathbf{T_3}$};
+
+
+        \end{tikzpicture}
+    \end{example}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Pairwise Completeness Scores} 
+\end{frame}
+
 
 \begin{frame}
     \frametitle{Implementation Details}
@@ -169,7 +264,7 @@ Quartet resolution per sequence (phylogenetic information):
             \begin{itemize}
                 \item C++ (\texttt{-std=c++17})
                 % cloc alignment main model tree utils
-                \item $\geq 80000$ lines of code
+                \item $> 80000$ lines of code
                 \item CMake Build System
                 \item Dependencies:
                 \begin{itemize}
