@@ -7,10 +7,11 @@
 
 \usetheme{moloch}
 
-\title{Quartet-Filtering in IQ-Tree}
+\title{Quartet Filtering for Likelihood Mapping in IQ-Tree}
 \author{Daniel Schlaugies}
 \institute{Universität Wien}
 \date{13.11.2026}
+\titlegraphic{\hfill\includegraphics[width=4cm]{IQTree_Final.png}}
 
 \begin{document}
 
@@ -33,7 +34,7 @@
     \frametitle{Quartets and Likelihood Mapping}
     \begin{itemize}
         \item Assess whether the alignment is suitable for a phylogenetic reconstruction.\pause
-        \item \alert{Can a tree be reliably resolved, even if its quartet subtrees cannot?}
+        \item \alert{Can a tree be reliably resolved, even if its (quartet) subtrees cannot?}
     \end{itemize}
 
     \pause
@@ -76,7 +77,7 @@
 \begin{frame}
     \frametitle{Quartets and Likelihood Mapping Continued}
     \[
-        p_i \geq 0 \text{ and } p_1 + p_2 + p_3 = 1 \implies p_i \in \Delta^2 = \{  (x_0, x_1, x_2) \in \mathbb{R}^3 \mid x_i \geq 0, \sum_{i=0}^2 x_i = 1 \}
+        p_i \geq 0 \text{ and } p_1 + p_2 + p_3 = 1 \implies (p_1, p_2, p_3) \in \Delta^2 = \left\{  (x_0, x_1, x_2) \in \mathbb{R}^3 \mid x_i \geq 0, \sum_{i=0}^2 x_i = 1 \right\}
     \]
     \centering
     \includegraphics[scale=0.25]{simplex_visualisation.png}
@@ -95,6 +96,9 @@
             \includegraphics[scale=0.25]{likelihood_diagram_percentages.png} 
         \end{column}
     \end{columns}
+    \pause
+    \vspace{1em}
+    Heuristic: more than $20 - 30\%$ outside of the corners $\implies$ data not reliable for phylogenetic inference
 \end{frame}
 
 \begin{frame}[fragile]
@@ -155,6 +159,38 @@ Quartet resolution per sequence (phylogenetic information):
         \end{column}
 \end{columns}
 
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Implementation Details}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item C++ (\texttt{-std=c++17})
+                % cloc alignment main model tree utils
+                \item $\geq 80000$ lines of code
+                \item CMake Build System
+                \item Dependencies:
+                \begin{itemize}
+                    \item Eigen3
+                    \item Boost
+                    \item MPI (Message Passing Interface)
+                \end{itemize}
+                \item Git repository hosted on GitHub
+                \item Documentation with Doxygen
+                \item Test scripts included
+                \item CI script running on GitHub Actions
+            \end{itemize} 
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[scale=0.54]{my-concepts-look-like-this.jpg} 
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[standout]
+    Thank you! 
 \end{frame}
 
 \end{document}
