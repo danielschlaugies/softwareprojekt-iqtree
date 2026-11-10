@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{csquotes}
 \usepackage{hyperref}
 \usepackage{tikz}
 
@@ -115,6 +116,7 @@
         $L_3$ 
         \vspace{1em}
         \\
+        \pause
         posteriors
         &
         $p_1 = \frac{L_1}{L_1 + L_2 + L_3}$
@@ -181,11 +183,15 @@ Quartet resolution per sequence (phylogenetic information):
     \end{semiverbatim}   
 \end{frame}
 
+\begin{frame}[standout=example]
+    Caveats of Likelihood Mapping
+\end{frame}
+
 \begin{frame}[fragile]
-    \frametitle{Problem Statement}
+    \frametitle{Informative Quartets}
     Not all quartets might be equally informative.
     Some quartets are more likely to be resolved correctly than others.
-    \begin{example}
+    \begin{example}[Identical Sequences]
         \begin{columns}
             \begin{column}{0.3\textwidth}
                 \begin{semiverbatim}
@@ -201,7 +207,7 @@ Quartet resolution per sequence (phylogenetic information):
             \end{column}
             \begin{column}{0.3\textwidth}
                 \begin{align*}
-                    A_1 = A_2 = A_3 \implies \\
+                    \implies
                     (p_1, p_2, p_3) = (1/3, 1/3, 1/3)
                 \end{align*}
             \end{column}
@@ -245,7 +251,7 @@ Quartet resolution per sequence (phylogenetic information):
     \begin{itemize}
         \item With \texttt{-lmap ALL}, sequences in a quartet are drawn according to their order in the alignment
         \item Changing their order changes the tree topology and thus their likelihoods
-        \item Mathematically: there is a group homomorphism $S_4 \to \text{Sym}(\{T_1, T_2, T_3\}) \cong S_3$.
+        \item Mathematically: there is a group homomorphism $S_4 \to \text{Sym}(\{T_1, T_2, T_3\}) \cong S_3$
     \end{itemize}
     \begin{example}
         Swap $A$ and $B$:
@@ -300,17 +306,19 @@ Quartet resolution per sequence (phylogenetic information):
 
         \end{tikzpicture}
     \end{example}
+    \pause
     \begin{block}{Possible Fix}
         permute quartets randomly
     \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{Pairwise Completeness Scores} 
+    \frametitle{Non Overlapping Sequences} 
 
     \begin{columns}
-        \begin{column}{0.7\textwidth}
+        \begin{column}{0.3\textwidth}
      % example taken from the AliStat manual, Jermiin 2020
+     \tiny
            \begin{verbatim}
 >Seq_1
 CGTACCTCTATTGTATGTTTGATGCCTCTATTGTATGTTTGAT-----
@@ -324,11 +332,39 @@ CGTACCTCTATTGTATGTTTGATGCCTCTATTGTATGTTTGAT-----
 CGTAC-----ATCTGTTGCATGATTAATGGCTCTATTGTATGTTTGAT 
             \end{verbatim}
         \end{column}
-        \begin{column}{0.3\textwidth}
-           asf 
+        \begin{column}{0.6\textwidth}
+            \begin{itemize}
+                \item site-likelihood will be equal to site-likelihood of subtree restricted to sequences containing non-gap characters
+                \item $\implies$ non-overlapping sequences yield unresolvable quartets
+            \end{itemize}
         \end{column}
     \end{columns}
 
+\end{frame}
+
+\begin{frame}
+    \frametitle{Pairwise Completeness Score}
+    \begin{columns}
+        \begin{column}{.5\textwidth}
+            \begin{definition}
+                \[
+                    C_{ij} = \frac{\left\vert \left\{ k ~\vert~ S_i^k \text{ and } S_j^k \text{ both unambiguous}\right\} \right\vert }{n}
+                \]
+            \end{definition}
+            \begin{block}{Possible Implementation}
+                Filter by minimum completeness score
+                \begin{itemize}
+                    \item required memory: $\Theta(m^2)$
+                \end{itemize}
+            \end{block}
+        \end{column}
+        \begin{column}{.5\textwidth}
+            \centering
+            \includegraphics[scale=0.25]{heatmap_small.png}
+            \\
+            \includegraphics[scale=0.2]{heatmap_big.png}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 
@@ -352,6 +388,7 @@ CGTAC-----ATCTGTTGCATGATTAATGGCTCTATTGTATGTTTGAT
                 \item Test scripts included
                 \item CI script running on GitHub Actions
             \end{itemize} 
+            \textquote[Bjarne Stroustrup]{There are only two kinds of languages: the ones people complain about and the ones nobody uses}
         \end{column}
         \begin{column}{0.5\textwidth}
             \includegraphics[scale=0.54]{my-concepts-look-like-this.jpg} 
