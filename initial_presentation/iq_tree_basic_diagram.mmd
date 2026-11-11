@@ -1,22 +1,24 @@
 flowchart LR
-    aln[">Frog
-AAATTTGGTCCTGTGATTCAGCAGTGAT
->Turtle
-CTTCCACACCCCAGGACTCAGCAGTGAT
->Bird
-CTACCACACCCCAGGACTCAGCAGTAAT
->Human
-CTACCACACCCCAGGAAACAGCAGTGAT
->Cow
-CTACCACACCCCAGGAAACAGCAGTGAC
->Whale
-CTACCACGCCCCAGGACACAGCAGTGAT
->Mouse
-CTACCACACCCCAGGACTCAGCAGTGAT"] --> iq{"`**IQ-TREE**`"}
+    aln[>Human      
+CTACCACACCCCAGGAAACAGCAGTGA...
+>Seal       
+CCACCACACCCCAGGATACAGCAGTAA...
+>Cow        
+CTACCACACCCCAGGAAACAGCAGTGA...
+>Whale      
+CTACCACGCCCCAGGACACAGCAGTGA...
+>Mouse      
+CTACCACACCCCAGGACTCAGCAGTGA...
+>Rat        
+CTACCACACCCCAGGACTCAGCAGTGA...
+>Platypus   
+CCTCCACACCCCAGGACACAGCAGTAA...
+>Opossum    
+CTTCCACACCCCAGGAGACAGCAGTGA...] --> iq{"`**IQ-TREE**`"}
     
     iq-->tree
 
-    tree@{ img: "https://raw.githubusercontent.com/danielschlaugies/softwareprojekt-iqtree/refs/heads/main/initial_presentation/tree.svg", constraint: "on", h: 200}
+    tree@{ img: "https://raw.githubusercontent.com/danielschlaugies/softwareprojekt-iqtree/refs/heads/main/initial_presentation/mtDNA-mamalia-tree.png", constraint: "on", h: 200}
     
     aln:::customMono
     tree:::noBorder
