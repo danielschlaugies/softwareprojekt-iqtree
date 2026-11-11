@@ -45,7 +45,7 @@
 \begin{document}
 
 \maketitle
-\addtocounter{framenumber}{1}
+\stepcounter{framenumber}
 
 \begin{frame}
     \frametitle{Background - Phylogenetic Inference}
@@ -180,39 +180,46 @@
     \end{columns}
     \pause
     \vspace{1em}
-    Heuristic: more than $20 - 30\%$ outside of the corners $\implies$ data not reliable for phylogenetic inference
+    Heuristic: more than $20 - 30\%$ outside of the corners $\implies$ data not reliable for phylogenetic inference.
 \end{frame}
 
 \begin{frame}[fragile]
     \frametitle{Likelihood Mapping Summary}
-    \footnotesize
-    \centering
-    \begin{semiverbatim}
+    \begin{columns}
+       \begin{column}{0.85\textwidth}
+            \footnotesize
+            \begin{semiverbatim}
 Quartet resolution per sequence (phylogenetic information):
-
-      #quartets   resolved           partly          unresolved  name
------------------------------------------------------------------------------
-   1      276    271 ( 98.19)       5 (  1.81)       0 (  0.00)  HIV1groupO
-   2      291    283 ( 97.25)       8 (  2.75)       0 (  0.00)  SIVcpzUS
-   3      289    272 ( 94.12)      13 (  4.50)       4 (  1.38)  SIVcpzGAB
-   4      295    274 ( 92.88)      17 (  5.76)       4 (  1.36)  aU09127
-   5      286    273 ( 95.45)       9 (  3.15)       4 (  1.40)  gU27426
-   6      267    255 ( 95.51)      12 (  4.49)       0 (  0.00)  gU27445
-   7      263    256 ( 97.34)       7 (  2.66)       0 (  0.00)  cAF067158
-   8      289    269 ( 93.08)      20 (  6.92)       0 (  0.00)  cU09126
-   9      297    288 ( 96.97)       9 (  3.03)       0 (  0.00)  dU27399
-  10      282    271 ( 96.10)      11 (  3.90)       0 (  0.00)  dU43386
-  11      288    283 ( 98.26)       3 (  1.04)       2 (  0.69)  bL02317
-  12      292    283 ( 96.92)       9 (  3.08)       0 (  0.00)  bAF025763
-  13      301    297 ( 98.67)       2 (  0.66)       2 (  0.66)  bU08443
-  14      284    277 ( 97.54)       7 (  2.46)       0 (  0.00)  bAF042106
------------------------------------------------------------------------------
-         1000    963 ( 96.30)      33 (  3.30)       4 (  0.40)
-    \end{semiverbatim}   
+    #quartets   resolved           partly          unresolved  name
+---------------------------------------------------------------------------
+ 1      276    271 ( 98.19)       5 (  1.81)       0 (  0.00)  HIV1groupO
+ 2      291    283 ( 97.25)       8 (  2.75)       0 (  0.00)  SIVcpzUS
+ 3      289    272 ( 94.12)      13 (  4.50)       4 (  1.38)  SIVcpzGAB
+ 4      295    274 ( 92.88)      17 (  5.76)       4 (  1.36)  aU09127
+ 5      286    273 ( 95.45)       9 (  3.15)       4 (  1.40)  gU27426
+ 6      267    255 ( 95.51)      12 (  4.49)       0 (  0.00)  gU27445
+ 7      263    256 ( 97.34)       7 (  2.66)       0 (  0.00)  cAF067158
+ 8      289    269 ( 93.08)      20 (  6.92)       0 (  0.00)  cU09126
+ 9      297    288 ( 96.97)       9 (  3.03)       0 (  0.00)  dU27399
+10      282    271 ( 96.10)      11 (  3.90)       0 (  0.00)  dU43386
+11      288    283 ( 98.26)       3 (  1.04)       2 (  0.69)  bL02317
+12      292    283 ( 96.92)       9 (  3.08)       0 (  0.00)  bAF025763
+13      301    297 ( 98.67)       2 (  0.66)       2 (  0.66)  bU08443
+14      284    277 ( 97.54)       7 (  2.46)       0 (  0.00)  bAF042106
+---------------------------------------------------------------------------
+       1000    963 ( 96.30)      33 (  3.30)       4 (  0.40)
+            \end{semiverbatim}   
+        \end{column} 
+        \begin{column}{0.15\textwidth}
+            \includegraphics[scale=0.085]{likelihood_diagram_percentages.png}
+        \end{column}
+    \end{columns}
+    \centering
 \end{frame}
 
 \begin{frame}[standout=example]
     Caveats of Likelihood Mapping
+    \stepcounter{framenumber}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -220,28 +227,30 @@ Quartet resolution per sequence (phylogenetic information):
     Not all quartets might be equally informative.
     \begin{example}[Identical Sequences]
         \begin{columns}
-            \begin{column}{0.1\textwidth}
-                \footnotesize
+            \begin{column}{0.3\textwidth}
+                \scriptsize
                 \begin{semiverbatim}
->A_1
-ACAGT
->A_2
-ACAGT
->A_3
-ACAGT
->B
-TGAGT
+>Seq_1      
+CTACCACACCCCAGGAAACAGCAGTGA...
+>Seq_2
+CTACCACACCCCAGGAAACAGCAGTGA...
+>Seq_3      
+CTACCACACCCCAGGAAACAGCAGTGA...
+>Seq_4       
+CCACCACACCCCAGGATACAGCAGTAA...
                 \end{semiverbatim}
             \end{column}
-            \begin{column}{0.3\textwidth}
-                \[
-                    L_1 = L_2 = L_3 \implies p_i = \frac{1}{3}
-                \]
+            \begin{column}{0.2\textwidth}
+                \begin{align*}
+                    L_1 &= L_2 = L_3\\
+                    &\implies\\
+                    &p_i = \frac{1}{3} 
+                \end{align*}
             \end{column}
             \begin{column}{0.5\textwidth}
                 \begin{itemize}
                     \item 3 identical sequences cause a quartet to be unresolvable
-                    \item by default, 3rd ore subsequent occurrence of a sequence will be ignored 
+                    \item by default, 3rd and subsequent identical sequences will be ignored 
                     \item however, these occurrences are also ignored in the likelihood mapping table
                 \end{itemize}
             \end{column}
@@ -252,14 +261,36 @@ TGAGT
     \end{block}
 \end{frame}
 
+\begin{frame}[fragile]
+    \frametitle{Other Uninformative Quartets}
+    \begin{example}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \begin{verbatim}
+seq1: ATACCACACC CCAGGAAACA GCAGTGA
+seq2: CTACCACACT CCAGGAAACA GCAGTGA
+seq3: CTACCACACC CCAGGAGACA GCAGTGA
+seq4: CTACCACACC CCAGGAAACA GCAGGGA
+      *        *       *        * 
+                \end{verbatim} 
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{itemize}
+                    \item sequences identical up to \enquote{singleton} sites
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{example}
+\end{frame}
+
 \begin{frame}
     \frametitle{Quartet Permutations}
     \begin{columns}[t]
         \begin{column}{0.5\textwidth}
             \texttt{iqtree3 -lmap 1000}
             \begin{itemize}
-                \item Specifies number of quartets to be drawn
-                \item Quartets are drawn uniformly at random
+                \item specifies number of quartets to be drawn
+                \item quartets are drawn uniformly at random
             \end{itemize}
             \centering
             \vfill
@@ -269,7 +300,7 @@ TGAGT
         \begin{column}{0.5\textwidth}
             \texttt{iqtree3 -lmap ALL}
             \begin{itemize}
-                \item All possible $\binom{n}{4}$ quartets are drawn
+                \item all possible $\binom{n}{4}$ quartets are drawn
                 \item in this case $n = 14 \implies \binom{14}{4} = 1001$
             \end{itemize}
             \centering
@@ -283,9 +314,9 @@ TGAGT
 \begin{frame}
     \frametitle{Quartet Permutations - Explanation} 
     \begin{itemize}
-        \item With \texttt{-lmap ALL}, sequences in a quartet are drawn according to their order in the alignment
-        \item Changing their order changes the tree topology and thus their likelihoods
-        \item Mathematically: there is a group homomorphism $S_4 \to \text{Sym}(\{T_1, T_2, T_3\}) \cong S_3$
+        \item with \texttt{-lmap ALL}, sequences in a quartet are drawn according to their order in the alignment
+        \item changing their order changes the tree topology and thus their likelihoods
+        \item mathematically: there is a group homomorphism $S_4 \to \text{Sym}(\{T_1, T_2, T_3\}) \cong S_3$
     \end{itemize}
     \begin{example}
         Swap $A$ and $B$:
@@ -342,7 +373,7 @@ TGAGT
     \end{example}
     \pause
     \begin{block}{Possible Fix}
-        permute quartets randomly
+        Permute quartets randomly.
     \end{block}
 \end{frame}
 
@@ -350,23 +381,19 @@ TGAGT
     \frametitle{Non Overlapping Sequences} 
 
     \begin{columns}
-        \begin{column}{0.3\textwidth}
+        \begin{column}{0.6\textwidth}
      % example taken from the AliStat manual, Jermiin 2020
-     \tiny
+     \scriptsize
            \begin{verbatim}
->Seq_1
-CGTACCTCTATTGTATGTTTGATGCCTCTATTGTATGTTTGAT-----
->Seq_2
------CGTACATCTGTTGCATGATTAATGGATCTGTTGCATGATTAAT
->Seq_3
------CGTACTTG-----------------CTCTATTGTATGTTTGAT
->Seq_4
------CGTACATCTGTTGCATGATTAATGG------------------
->Seq_5
-CGTAC-----ATCTGTTGCATGATTAATGGCTCTATTGTATGTTTGAT 
+Seq_1:	CGTACCTCTA TTGTATGTTT GATGCCTCTA TTGTATGTTTGAT
+Seq_2:	CGTACATCTG TTGCATGATT AATGGATCTG TTGCATGATTAAT
+Seq_3:	CGTACTTG—— —————————- ——---CTCTA TTGTATGTTTGAT
+Seq_4:	CGTACATCTG TTGCATGATT AATGG—---- -----————————
+Seq_5:	CGTACATCTG TTGCATGATT AATGGCTCTA TTGTATGTTTGAT
+       ********
             \end{verbatim}
         \end{column}
-        \begin{column}{0.6\textwidth}
+        \begin{column}{0.4\textwidth}
             \begin{itemize}
                 \item site-likelihood will be equal to site-likelihood of subtree restricted to sequences containing non-gap characters
                 \item $\implies$ non-overlapping sequences yield unresolvable quartets
@@ -432,6 +459,7 @@ CGTAC-----ATCTGTTGCATGATTAATGGCTCTATTGTATGTTTGAT
 
 \begin{frame}[standout]
     Thank you! 
+    \stepcounter{framenumber}
 \end{frame}
 
 \begin{frame}[allowframebreaks]
