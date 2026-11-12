@@ -37,10 +37,13 @@
 \usetheme{moloch}
 
 \title{Quartet Filtering for Likelihood Mapping in IQ-Tree}
-\author{Daniel Schlaugies}
+\author[Daniel Schlaugies]{Daniel Schlaugies\\[1ex]
+{\small Project Supervisor: Heiko Schmidt}}
 \institute{Universität Wien}
 \date{13.11.2026}
-\titlegraphic{\hfill\includegraphics[width=4cm]{IQTree_Final.png}}
+\titlegraphic{
+\includegraphics[scale=0.15]{simplex_visualisation.png}    
+\hfill\includegraphics[width=4cm]{IQTree_Final.png}}
 
 \begin{document}
 
@@ -50,12 +53,15 @@
 \begin{frame}
     \frametitle{Background - Phylogenetic Inference}
 
-    \begin{centering}
-        \includegraphics[scale=0.14]{iq_tree_basic_diagram.pdf}
-    \end{centering}
+    \begin{center}
+        \includegraphics[scale=0.11]{iq_tree_basic_diagram.pdf}
+    \end{center}
     \pause
     \begin{itemize}
-        \item Resulting tree that is best explained by data, i.e. maximum likelihood $\mathbb{P}(\text{aligned sequences}~\vert~\text{tree, model of evolution})$
+        \item resulting tree that is best explained by data, i.e. maximum likelihood estimation
+        \[
+        \mathcal{L}(\text{tree, model of evolution}) = \mathbb{P}(\text{aligned sequences}~\vert~\text{tree, model of evolution})
+        \]  
         \item Phylogenetic assumptions? Phylogenetic information present in alignment?
     \end{itemize}
 \end{frame}
@@ -381,22 +387,20 @@ seq4: CTACCACACC CCAGGAAACA GCAGGGA
     \frametitle{Non Overlapping Sequences} 
 
     \begin{columns}
-        \begin{column}{0.6\textwidth}
-     % example taken from the AliStat manual, Jermiin 2020
+        \begin{column}{0.5\textwidth}
      \scriptsize
            \begin{verbatim}
-Seq_1:	CGTACCTCTA TTGTATGTTT GATGCCTCTA TTGTATGTTTGAT
-Seq_2:	CGTACATCTG TTGCATGATT AATGGATCTG TTGCATGATTAAT
-Seq_3:	CGTACTTG—— —————————- ——---CTCTA TTGTATGTTTGAT
-Seq_4:	CGTACATCTG TTGCATGATT AATGG—---- -----————————
-Seq_5:	CGTACATCTG TTGCATGATT AATGGCTCTA TTGTATGTTTGAT
-       ********
+Seq_1:	 TTGTATGTTT GATGCCTCTA TTGTATGTTT GAT
+Seq_2:	 TTGCATGATT AATGGATCTG TTGCATGATT AAT
+Seq_3:	 —————————- ——-----CTA TTGTATGTTT GAT
+Seq_4:	 TTGCATGATT AATGG—---- -----————— ———
+Seq_5:	 TTGCATGATT AATGGCTCTA TTGTATGTTT GAT
             \end{verbatim}
         \end{column}
-        \begin{column}{0.4\textwidth}
+        \begin{column}{0.5\textwidth}
             \begin{itemize}
-                \item site-likelihood will be equal to site-likelihood of subtree restricted to sequences containing non-gap characters
-                \item $\implies$ non-overlapping sequences yield unresolvable quartets
+                % \item site-likelihood will be equal to site-likelihood of subtree restricted to sequences containing non-gap characters
+                \item[$\implies$] non-overlapping sequences might cause wrongly resolved or unresolved quartets
             \end{itemize}
         \end{column}
     \end{columns}
@@ -421,9 +425,9 @@ Seq_5:	CGTACATCTG TTGCATGATT AATGGCTCTA TTGTATGTTTGAT
         \end{column}
         \begin{column}{.5\textwidth}
             \centering
-            \includegraphics[scale=0.25]{heatmap_small.png}
-            \\
-            \includegraphics[scale=0.2]{heatmap_big.png}
+            % \includegraphics[scale=0.25]{heatmap_small.png}
+            % \\
+            \includegraphics[scale=0.325]{heatmap_big.png}
         \end{column}
     \end{columns}
 \end{frame}

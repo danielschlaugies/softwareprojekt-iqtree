@@ -1,5 +1,6 @@
+
 flowchart LR
-    aln[>Human      
+    aln[">Human      
 CTACCACACCCCAGGAAACAGCAGTGA...
 >Seal       
 CCACCACACCCCAGGATACAGCAGTAA...
@@ -14,13 +15,13 @@ CTACCACACCCCAGGACTCAGCAGTGA...
 >Platypus   
 CCTCCACACCCCAGGACACAGCAGTAA...
 >Opossum    
-CTTCCACACCCCAGGAGACAGCAGTGA...] --> iq{"`**IQ-TREE**`"}
+CTTCCACACCCCAGGAGACAGCAGTGA..."] --> |IQ-Tree|tree
     
-    iq-->tree
 
-    tree@{ img: "https://raw.githubusercontent.com/danielschlaugies/softwareprojekt-iqtree/refs/heads/main/initial_presentation/mtDNA-mamalia-tree.png", constraint: "on", h: 200}
-    
-    aln:::customMono
-    tree:::noBorder
-    classDef customMono text-align:left,font-family:monospace,font-size:8px;
-    classDef noBorder stroke:none,stroke-width:0;
+    tree@{ img: "https://raw.githubusercontent.com/danielschlaugies/softwareprojekt-iqtree/refs/heads/main/initial_presentation/mtDNA-mamalia-tree.png", h: 200, constraint: "on"}
+     aln:::customMono
+     tree:::noBorder
+    classDef customMono text-align:left,font-family:monospace,font-size:8px
+    classDef noBorder stroke:none,stroke-width:0
+
+
