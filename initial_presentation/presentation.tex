@@ -62,7 +62,7 @@
         \[
         \mathcal{L}(\text{tree, model of evolution}) = \mathbb{P}(\text{aligned sequences}~\vert~\text{tree, model of evolution})
         \]  
-        \item Phylogenetic assumptions? Phylogenetic information present in alignment?
+        \item Phylogenetic information present in alignment?
     \end{itemize}
 \end{frame}
 
@@ -164,6 +164,7 @@
 
 \begin{frame}
     \frametitle{Quartets and Likelihood Mapping Continued}
+    $p_i = \frac{L_i}{L_1 + L_2 + L_3}$
     \[
         p_i \geq 0 \text{ and } p_1 + p_2 + p_3 = 1 \implies (p_1, p_2, p_3) \in \Delta^2 = \left\{  (x_0, x_1, x_2) \in \mathbb{R}^3 \mid x_i \geq 0, \sum_{i=0}^2 x_i = 1 \right\}
     \]
@@ -225,11 +226,17 @@ Quartet resolution per sequence (phylogenetic information):
 
 \begin{frame}[standout=example]
     Caveats of Likelihood Mapping
+    \vspace{1em}
+    \begin{enumerate}
+        \item Uninformative Quartets
+        \item Quartet Permutations
+        \item Non Overlapping Sequences
+    \end{enumerate}
     \stepcounter{framenumber}
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{Informative Quartets}
+    \frametitle{1. Uninformative Quartets}
     Not all quartets might be equally informative.
     \begin{example}[Identical Sequences]
         \begin{columns}
@@ -290,7 +297,7 @@ seq4: CTACCACACC CCAGGAAACA GCAGGGA
 \end{frame}
 
 \begin{frame}
-    \frametitle{Quartet Permutations}
+    \frametitle{2. Quartet Permutations}
     \begin{columns}[t]
         \begin{column}{0.5\textwidth}
             \texttt{iqtree3 -lmap 1000}
@@ -384,7 +391,7 @@ seq4: CTACCACACC CCAGGAAACA GCAGGGA
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{Non Overlapping Sequences} 
+    \frametitle{3. Non Overlapping Sequences} 
 
     \begin{columns}
         \begin{column}{0.5\textwidth}
